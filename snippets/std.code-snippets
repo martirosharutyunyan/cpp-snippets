@@ -1,0 +1,14 @@
+{
+    "cout" : {
+        "prefix": "cout",
+        "body": [
+            "std::cout << $0;"
+        ]
+    },
+    "cin" : {
+        "prefix": "cin",
+        "body": [
+            "std::cin << $0;"
+        ]
+    }
+}
