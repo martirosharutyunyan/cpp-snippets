@@ -1,14 +1,57 @@
 {
+    "start_program" : {
+        "prefix": "start",
+        "body": [
+            "#include <iostream>",
+            "",
+            "int main() {",
+            "    $0",
+            "    return 0;",
+            "}"
+        ]
+    },
     "cout" : {
         "prefix": "cout",
         "body": [
-            "std::cout << $0;"
+            "std::cout << $0 << '\n';"
         ]
     },
     "cin" : {
         "prefix": "cin",
         "body": [
             "std::cin << $0;"
+        ]
+    },
+    "include_vector" : {
+        "prefix": "ivector",
+        "body": [
+            "#include <vector>",
+            "$0"
+        ]
+    },
+    "include_string" : {
+        "prefix": "istring",
+        "body": [
+            "#include <string>",
+            "$0"
+        ]
+    },
+    "int" : {
+        "prefix": "int",
+        "body": [
+            "int $1{$0}"
+        ]
+    },
+    "float" : {
+        "prefix": "float",
+        "body": [
+            "float $1{$0}"
+        ]
+    },
+    "string" : {
+        "prefix": "string",
+        "body": [
+            "std::string $1{$0}"
         ]
     }
 }

@@ -1,10 +1,8 @@
-
-  
-const fs = require('fs').promises
+const fs = require('fs')
 
 const createFiles = data => {
     let ReadmeMd = `
-# cpp snippets
+# c++ snippets
 ## Usage
 keywords
 **Enjoy!**
@@ -38,16 +36,16 @@ const create = async () => {
     const package = require('./package.json')
     const version = `${first}.${second}.${++third}`
     package.version = version
-    fs.writeFile('./package.json', JSON.stringify(package, null, 2))
-    const files = await fs.readdir('./snippets')
-    const data = await Promise.all(files.map(async filename => {
-        const json = await fs.readFile(`./snippets/${filename}`)
-        return Object.values(JSON.parse(json.toString()))
-    }))
+    fs.writeFileSync('./package.json', JSON.stringify(package, null, 2))
+    const files = fs.readdirSync('./snippets')
+    const data = files.map(filename => {
+        const json = fs.readFileSync(`./snippets/${filename}`, 'utf8')
+        return Object.values(JSON.parse(json))
+    })
     const json = []
     data.forEach(e => e.forEach(e => json.push(e)))
     const file = createFiles(json)
-    fs.writeFile('./README.md', file)
+    fs.writeFileSync('./README.md', file)
 }
 
 create()
