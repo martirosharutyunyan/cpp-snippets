@@ -10,13 +10,13 @@
             "}"
         ]
     },
-    "cout" : {
+    "std::cout" : {
         "prefix": "cout",
         "body": [
-            "std::cout << $0 << '\n';"
+            "std::cout << $0 << '\\n';"
         ]
     },
-    "cin" : {
+    "std::cin" : {
         "prefix": "cin",
         "body": [
             "std::cin << $0;"
@@ -39,19 +39,116 @@
     "int" : {
         "prefix": "int",
         "body": [
-            "int $1{$0}"
+            "int $1{$0};"
         ]
     },
     "float" : {
         "prefix": "float",
         "body": [
-            "float $1{$0}"
+            "float $1{$0};"
         ]
     },
-    "string" : {
+    "std::string" : {
         "prefix": "string",
         "body": [
-            "std::string $1{$0}"
+            "std::string $1{$0};"
+        ]
+    },
+    "static_cast" : {
+        "prefix": "static_cast",
+        "body": [
+            "static_cast<$1>($0)"
+        ]
+    },
+    "std::count_if" : {
+        "prefix": "count_if",
+        "body": [
+            "std::count_if($0)"
+        ]
+    },
+    "std::begin" : {
+        "prefix": "begin",
+        "body": [
+            "std::begin($0)"
+        ]
+    },
+    "std::end" : {
+        "prefix": "end",
+        "body": [
+            "std::end($0)"
+        ]
+    },
+    "std::nothrow" : {
+        "prefix": "nothrow",
+        "body": [
+            "std::nothrow()"
+        ]
+    },
+    "struct" : {
+        "prefix": "struct",
+        "body": [
+            "struct $0{};"
+        ]
+    },
+    "function" : {
+        "prefix": "fn",
+        "body": [
+            "$0 $1() {",
+            "    ",    
+            "}"
+        ]
+    },
+    "class" : {
+        "prefix": "class",
+        "body": [
+            "class $1", 
+            "{",
+            "    $0",
+            "}"
+        ]
+    },
+    "class_accessors" : {
+        "prefix": "aclass",
+        "body": [
+            "class $1", 
+            "{",
+            "private:",
+            "protected:",
+            "public:",
+            "    $0",
+            "}"
+        ]
+    },
+    "void" : {
+        "prefix": "v",
+        "body": [
+            "void $0"
+        ]
+    },
+    "if":{
+        "prefix": "if",
+        "body": [
+            "if ($1) {",
+            "    $0",
+            "};"
+        ]
+    },
+    "if_else":{
+        "prefix": "ife",
+        "body": [
+            "if ($1) {",
+            "    $2",
+            "} else {",
+            "    $0",
+            "};"
+        ]
+    },
+    "else_if":{
+        "prefix": "ef",
+        "body": [
+            "else if ($1) {",
+            "    $0",
+            "};"
         ]
     }
 }
